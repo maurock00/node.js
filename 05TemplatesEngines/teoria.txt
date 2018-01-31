@@ -1,0 +1,8 @@
+MIXINS
+
+Son como tareas que deben ejecutarse repetitivamente,
+similar a una funcion pero en Jade.
+
+
+
+------------------------EJS----------------------

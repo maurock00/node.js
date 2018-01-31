@@ -1,0 +1,76 @@
+CALLBACKS
+
+Node.js maneja la asincronia utilizando callbacks
+
+- Continuaciones explicita como funciones
+- Cuando termines..... ejecuta otra funcion
+
+Ventajas
+
+- Muy faciles de entender e implementar
+- Familiares para el programador JS
+- Extremadamente flexibles
+- Un mecanismo unversal de asincronia
+
+Problema: CALLBACK HELL
+
+PROMESA ES:
+
+Una manera alternativa de modelar asincronia
+-Construccion explicita del flujo de ejecucion
+-Separacion en bloques consecutivos
+-Manejo de errores mas controlado
+-Combinacion de diferentes flujos asincronos
+-Flujo de ejecuciones
+
+MAs ventajas
+
+- Codigo mucho mas ordenado y legible
+- Mejor control de errores.
+- Podemos manipular el flujo
+- Anadir nuevas etapas
+- Devolver en funciones
+- Pasarlo como parametro
+- Podemos combinar varios flujos
+
+El valor que devuelve la primera promesa se convierte en el parametro
+que se envia a la segunda promesay asi sucesivamente.
+
+COMO FUNCIONAN
+
+Estructura
+
+.then(succes,[error])
+  Concatena bloques
+  El nuevo nloque (succes)
+    Solo se ejecuta si el anterior lo hace sin errores
+    recibe como parametro el resultado del bloque anterior
+    devuelve el valor que se le pasara al siguiente bloque
+      Si es un dato, se pasa tal cual
+      Si es una promesa, se resuelve.
+  .fail(error)
+    El segundo parametro es un manejador de error
+
+Las promesas se resuelven o se rechazaon y se dividen en 2:
+
+La promesa en si
+  Interfaz que construye flujos
+  .then y .fail
+Su diferido
+  Interfaz que controla los flujos
+  .reject y .resolve
+
+Casi todos los modulos de Node.js que realizan una operacion asincrona siguen el mismo
+flujo
+
+- Reciben una callback como ultimo parametro
+- El callback recibe uno o mas parametros:
+  Generalmente el primero indica si hay error:
+    - Si es falso todo OK
+    - Si es verdadero es el Error
+
+
+Existen promesas en ES6 o se pueden usar paquetes como q
+
+- Paquete q
+- API q

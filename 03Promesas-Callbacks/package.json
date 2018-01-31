@@ -1,0 +1,19 @@
+{
+  "name": "promises",
+  "version": "0.0.1",
+  "description": "Ejercicio conceptos de promises y diferenciacion con callbacks",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "callbacks",
+    "promises",
+    "q"
+  ],
+  "author": "Mauricio Morales",
+  "license": "MIT",
+  "dependencies": {
+    "q": "^1.5.0"
+  }
+}

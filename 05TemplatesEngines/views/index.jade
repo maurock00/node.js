@@ -1,0 +1,106 @@
+extends layout.jade
+
+block content
+  //Esto es un comentario de HTML 
+  //- Esto es un comentario para JADE
+
+  // 
+    Esto es un bloque de comentario en HTML
+    ALAKSKSAKASKSASAK
+    ALAKSKSAKASKSASAK
+    
+  //- 
+    Esto es un bloque de comentario en JADE
+    ALAKSKSAKASKSASAK
+    ALAKSKSAKASKSASAK
+  article#jade.container  
+    // title viene de la ruta de express
+    h1
+      a(href="#{link}", target="_blank")= title
+    p= description
+
+    //h2 Estaciones del anio
+    //ul
+      li Primavera
+        ol 
+          li Abril
+          li Mayo
+          li Junio  
+      li Verano
+        ol 
+          li Julio
+          li Agosto 
+          li Septiembre
+      li Otonio
+        ol 
+          li Octubre
+          li Noviembre
+          li Diciembre
+      li Invierno
+        ol
+          li Enero 
+          li Febrero
+          li Marzo
+  
+  article.container
+    h2 Estructura Basica de Jade
+    p Este archivo es generado con el motor de plantillas Jade
+    p Para concatenar contenido
+      |en varias lineas 
+      |se usa el pie '|'
+  
+  include logo 
+
+    //Interpolacion (.) de HTML 
+    p.
+      Si te gusta la forma en que Jade genera codigo HTML
+      puedes leer la documentacion del
+      #[a(href="http://jade-lang.com/api", target="_blank") API], 
+      la referencia del #[a(href="http://jade-lang.com/reference", target="_blank") lenguaje]
+      y de la 
+      <a href="http://jade-lang.com/command-line" target="_blank">Linea de Cpmandos</a>.
+      
+    //Interpolacion de codigo JS
+    
+    br
+    button#presioname.boton Presioname
+    script.
+      //alert('JavaScript ejecutado desde Jade')
+      document.querySelector('#presioname').onclick = function(){
+        alert('Haz presionado el boton JS desde Jade')
+      }
+    
+    //Creacionn de variables JS dentro del codigo JADE
+    -var nombre = 'Jade';
+    p Hola #{nombre}  
+   
+    -var fecha = new Date();
+    -var hora = fecha.getHours(); 
+
+    if (hora < 12)
+      p La hora #{hora} es antes del meridino (AM)
+    else
+      p La hora #{hora} es despues del meridino (PM)
+    
+    -var seasons = ['Primavera', 'Verano', 'Otonio', 'Invierno'];
+    
+    h2 Estaciones del anio
+    ol
+      each season in seasons
+        li #{season}
+    
+    //MIXIN
+    mixin monthsSeasonsMexico(season, months)
+        div.item
+          h3 #{season}
+          ul 
+            each month in months
+              li #{month}
+              
+    h2 Estaciones del anio en Mexico
+    article.container
+      +monthsSeasonsMexico(seasons[0], ['Abril','Mayo','Junio'])
+      +monthsSeasonsMexico(seasons[1], ['Julio','Agosto','Septiembre'])
+      +monthsSeasonsMexico(seasons[2], ['Octubre','Noviembre','Diciembre'])
+      +monthsSeasonsMexico(seasons[3], ['Enero','Febrero','Marzo'])
+      

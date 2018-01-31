@@ -1,0 +1,28 @@
+{
+  "name": "api-rest-mongo",
+  "version": "0.0.1",
+  "description": "Api REST MVC con mongo express y node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor server.js"
+  },
+  "keywords": [
+    "API",
+    "REST",
+    "MVC",
+    "mongo"
+  ],
+  "author": "Mauricio Morales",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-method-override": "0.0.3",
+    "jade": "^1.11.0",
+    "mongoose": "^4.12.3",
+    "morgan": "^1.9.0",
+    "responsimple": "^1.0.1",
+    "serve-favicon": "^2.4.5"
+  }
+}
